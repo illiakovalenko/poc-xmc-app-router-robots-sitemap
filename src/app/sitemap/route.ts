@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
   // NOTE: In App Router we can't access "id" parameter added by rewrites, since it
   // keeps the original pathname and query params.
   // So we need to extract the id from the pathname.
-  const id = url.pathname.match(/^\/sitemap-(\d+)\.xml$/i)?.[1];
+  const id = url.pathname.match(/^\/sitemap-(\d+)\.xml$/i)?.[1] || '';
 
   const reqProtocol = req.headers.get("x-forwarded-proto") || "https";
   const reqHost = req.headers.get("host") || "";
